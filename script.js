@@ -49,3 +49,11 @@ window.addEventListener('beforeunload', (event) => {
     event.returnValue = ''; 
 });
 
+window.addEventListener('beforeunload', (event) => {
+    // 1. ביטול פעולת הסגירה האוטומטית כברירת מחדל
+    event.preventDefault();
+    
+    // 2. הגדרת מאפיין returnValue (נדרש עבור דפדפנים מסוימים כמו כרום)
+    event.returnValue = ''; 
+});
+
