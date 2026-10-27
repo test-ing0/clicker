@@ -1,0 +1,41 @@
+//function showTime() {
+//	document.getElementById('currentTime').innerHTML = new Date().toUTCString();
+//}
+//showTime();
+//setInterval(function () {
+//	showTime();
+//}, 101);
+
+const y = sessionStorage.getItem("savedScore");
+var x = Number(y)
+
+document.createElement('testid')
+
+function test() {
+  document.getElementById('testid').innerHTML = x;
+}
+test();
+var inputv = 1
+function inputt() {
+    let inputv = document.getElementById('inputtest');
+    x = inputv.value
+    x = Number(x)
+    test()
+
+}
+
+function inputhack() {
+    let inputtest = document.getElementById('inputtest');
+    let x = inputtest.value
+    x = Number(x)
+    test()
+    sessionStorage.setItem("savedScore", x);
+    window.location.href = "index.html";
+  
+}
+function showAlert() {
+  //alert("Button was clicked via inline HTML!");
+  x += 1
+  test()
+  
+}
