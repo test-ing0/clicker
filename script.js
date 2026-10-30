@@ -27,7 +27,7 @@ function inputt() {
 function inputhack() {
     let inputtest = document.getElementById('inputtest');
     let x = inputtest.value
-    x = Number(x)
+    
     test()
     sessionStorage.setItem("savedScore", x);
     window.location.href = "index.html";
@@ -40,36 +40,41 @@ function showAlert() {
   
 }
 
-
-window.addEventListener('beforeunload', (event) => {
-    // 1. ביטול פעולת הסגירה האוטומטית כברירת מחדל
-    event.preventDefault();
-    
-    // 2. הגדרת מאפיין returnValue (נדרש עבור דפדפנים מסוימים כמו כרום)
-    event.returnValue = ''; 
-});
-
-window.addEventListener('beforeunload', (event) => {
-    // 1. ביטול פעולת הסגירה האוטומטית כברירת מחדל
-    event.preventDefault();
-    
-    // 2. הגדרת מאפיין returnValue (נדרש עבור דפדפנים מסוימים כמו כרום)
-    event.returnValue = ''; 
-});
-
+const b = document.getElementById("button1");
 // עטיפת כל הקוד בתוך פונקציה סגורה
 (() => {
-    let score = 0; // המשתנה הזה מוגן מה-Console הרגיל!
 
-    function addPoints() {
-        score += 10;
-        console.log("הניקוד הנוכחי:", score);
-        document.getElementById("point").innerHTML = score
+    let score = 0
+    if (sessionStorage.getItem("savedpoint")){
+      score = sessionStorage.getItem("savedpoint")
+      score=Number(score)
+      
+    }
+    
+    let hackb = document.getElementById("hackb")
+    if (hackb) {
+      hackb.addEventListener("click",hack)
+    }
+    function hack() {
+      let inputhack = document.getElementById("hackinput")
+      inputhack = inputhack.value
+      score = Number(inputhack)
+      sessionStorage.setItem("savedpoint",score)
+      window.location.href = "index.html";
     }
 
+    function addPoints() {
+        score += 1;
+        document.getElementById("testid").innerHTML = score
+        sessionStorage.setItem("savedpoint",score)
+        
+    }
+    document.getElementById("testid").innerHTML = score
+    b.addEventListener("click" , addPoints)
+    
     // הדבקת מאזין לכפתור בתוך הסגירה
-    document.getElementById("gameButton").addEventListener("click", addPoints);
+    //document.getElementById("gameButton").addEventListener("click", addPoints);
 })();
-addPoints()
-//test
+
+
 
