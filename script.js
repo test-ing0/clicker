@@ -70,4 +70,5 @@ window.addEventListener('beforeunload', (event) => {
     document.getElementById("gameButton").addEventListener("click", addPoints);
 })();
 addPoints()
+//test
 
