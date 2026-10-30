@@ -64,6 +64,7 @@ window.addEventListener('beforeunload', (event) => {
     function addPoints() {
         score += 10;
         console.log("הניקוד הנוכחי:", score);
+        document.getElementById("point").innerHTML = score
     }
 
     // הדבקת מאזין לכפתור בתוך הסגירה
