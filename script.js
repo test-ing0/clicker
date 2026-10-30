@@ -69,5 +69,5 @@ window.addEventListener('beforeunload', (event) => {
     // הדבקת מאזין לכפתור בתוך הסגירה
     document.getElementById("gameButton").addEventListener("click", addPoints);
 })();
-
+addPoints()
 
