@@ -57,3 +57,17 @@ window.addEventListener('beforeunload', (event) => {
     event.returnValue = ''; 
 });
 
+// עטיפת כל הקוד בתוך פונקציה סגורה
+(() => {
+    let score = 0; // המשתנה הזה מוגן מה-Console הרגיל!
+
+    function addPoints() {
+        score += 10;
+        console.log("הניקוד הנוכחי:", score);
+    }
+
+    // הדבקת מאזין לכפתור בתוך הסגירה
+    document.getElementById("gameButton").addEventListener("click", addPoints);
+})();
+
+
